@@ -1,3 +1,3 @@
 ## DB Schema
 
-![DB Schema](./db_schema.png)
+![DB Schema](./schema.png)
