@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
+            $table->string("image_url");
+            $table->string("title_en");
+            $table->string("title_ar");
+            $table->text("description_en")->nullable();
+            $table->text("description_ar")->nullable();
             $table->timestamps();
         });
     }
