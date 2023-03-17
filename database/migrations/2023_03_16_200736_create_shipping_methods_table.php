@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('shipping_methods', function (Blueprint $table) {
             $table->id();
+            $table->string("name_en");
+            $table->string("name_ar");
+            $table->text("description_en")->nullable();
+            $table->text("description_en")->nullable();
+            $table->decimal("fee", 8, 2)->default(0);
+            $table->unsignedInteger("min_delivery_days")->default(2);
+            $table->unsignedInteger("max_delivery_days")->nullable();
             $table->timestamps();
         });
     }

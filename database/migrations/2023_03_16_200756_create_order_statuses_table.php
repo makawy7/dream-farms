@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('order_statuses', function (Blueprint $table) {
             $table->id();
+            $table->string("name_en");
+            $table->string("name_en");
+            $table->text("name_en")->nullable();
+            $table->text("name_en")->nullable();
+            $table->boolean("allow_update")->default(true);
             $table->timestamps();
         });
     }

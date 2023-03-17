@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('user_addresses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("user_id")->constrained("users")->cascadeOnDelete()->index();
+            $table->string("address_line_1");
+            $table->string("address_line_1")->nullable();
+            $table->text("more_info")->nullable();
             $table->timestamps();
         });
     }
