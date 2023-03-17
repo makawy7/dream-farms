@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('achievements', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger("cusomters_number")->default(0);
+            $table->unsignedInteger("cows_number")->default(0);
+            $table->unsignedInteger("awards_number")->default(0);
+            $table->unsignedInteger("volunteers_number")->default(0);
             $table->timestamps();
         });
     }

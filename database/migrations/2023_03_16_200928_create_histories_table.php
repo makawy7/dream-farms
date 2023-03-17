@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->id();
+            $table->string("image_url");
+            $table->text("body_en");
+            $table->text("body_ar");
             $table->timestamps();
         });
     }

@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
+            $table->string("image_url");
+            $table->string("link")->nullable();
             $table->timestamps();
         });
     }
