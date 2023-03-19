@@ -23,9 +23,6 @@ return new class extends Migration
             $table->string("motto_ar")->nullable();
             $table->text("info_en")->nullable();
             $table->text("info_ar")->nullable();
-            $table->string("phone_numbers")->nullable();
-            $table->text("address_en")->nullable()->nullable();
-            $table->text("address_ar")->nullable();
             $table->text("working_days_en")->nullable();
             $table->text("working_days_ar")->nullable();
             $table->string("map_location")->nullable();
