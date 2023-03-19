@@ -11,13 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('carts', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string("title_en");
+            $table->string("title_ar");
+            $table->string("slug_en");
+            $table->string("slug_ar");
+            $table->text("body_en");
+            $table->text("body_ar");
+            $table->string("image_url")->nullable();
             $table->foreignId("user_id")->constrained("users")->cascadeOnDelete();
-            $table->foreignId("product_id")->constrained("products")->cascadeOnDelete()->index();
-            $table->foreignId("variation_id")->constrained("product_variations")->cascadeOnDelete()->index()->nullable();
-            $table->foreignId("option_id")->constrained("variation_options")->cascadeOnDelete()->index()->nullable();
-            $table->unsignedInteger("quantity");
+            $table->foreignId("category_id")->constrained("post_categories")->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('carts');
+        Schema::dropIfExists('posts');
     }
 };

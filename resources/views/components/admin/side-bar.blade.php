@@ -3,8 +3,10 @@
     <div id="dashboard-Navigation" class="slick-nav"></div>
     <div id="navigation" class="navigation-container">
         <ul>
-            <li class="active-menu"><a href="dashboard.html"><i class="far fa-chart-bar"></i> Dashboard</a></li>
-            <li><a><i class="fas fa-user"></i>Users</a>
+            <li class="active-menu"><a href="{{route('admin.dashboard')}}"><i class="far fa-chart-bar"></i> Dashboard</a></li>
+            <li><a href="{{route('admin.settings')}}"><i class="fas fa-cog"></i>Website settings</a></li>
+     
+            {{-- <li><a><i class="fas fa-user"></i>Users</a>
                 <ul>
                     <li>
                         <a href="user.html">User</a>
@@ -29,7 +31,7 @@
             <li><a href="db-booking.html"><i class="fas fa-ticket-alt"></i> Booking & Enquiry</a></li>
             <li><a href="db-wishlist.html"><i class="far fa-heart"></i>Wishlist</a></li>
             <li><a href="db-comment.html"><i class="fas fa-comments"></i>Comments</a></li>
-            <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li> --}}
         </ul>
     </div>
 </div>

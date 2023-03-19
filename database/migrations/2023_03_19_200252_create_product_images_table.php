@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('post_likes', function (Blueprint $table) {
+        Schema::create('product_images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("user_id")->constrained("users")->cascadeOnDelete()->index();
-            $table->foreignId("post_id")->constrained("posts")->cascadeOnDelete()->index();
+            $table->string("image_url");
+            $table->foreignId("product_id")->constrained("products")->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('post_likes');
+        Schema::dropIfExists('product_images');
     }
 };

@@ -19,4 +19,8 @@ Route::get('/', function () {
 
 Route::get('/admin', function () {
     return view('admin.index');
-});
+})->name('admin.dashboard');
+
+Route::get('/admin/settings', function () {
+    return view('admin.pages.settings');
+})->name('admin.settings');
