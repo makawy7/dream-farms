@@ -9,20 +9,31 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>Website name (English)</label>
-                                    <input name="firstname" class="form-control" type="text">
+                                    <label for="website_name_en">Website name (English)</label>
+                                    <input id="website_name_en" name="website_name_en"
+                                        value="{{ old('website_name_en') ?? $setting->website_name_en }}"
+                                        class="form-control" type="text">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>Website name (Arabic)</label>
-                                    <input name="lastname" class="form-control" type="text">
+                                    <label for="website_name_ar">Website name (Arabic)</label>
+                                    <input id="website_name_ar" name="website_name_ar"
+                                        value="{{ old('website_name_ar') ?? $setting->website_name_ar }}"
+                                        class="form-control" type="text">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>Mobile</label>
-                                    <input name="phone" class="form-control" type="text">
+                                    <label>Default Locale</label>
+                                    <select>
+                                        <option
+                                            {{ old('default_locale') === 'en' || (!old('default_locale') && $setting->default_locale === 'en') ? 'selected' : '' }}>
+                                            English</option>
+                                        <option
+                                            {{ old('default_locale') === 'ar' || (!old('default_locale') && $setting->default_locale === 'ar') ? 'selected' : '' }}>
+                                            Arabic</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">
