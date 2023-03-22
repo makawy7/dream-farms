@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class FarmAddress extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 }

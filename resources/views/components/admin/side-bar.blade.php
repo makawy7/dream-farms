@@ -1,37 +1,37 @@
-<div class="dashboard-navigation">
-    <!-- Responsive Navigation Trigger -->
-    <div id="dashboard-Navigation" class="slick-nav"></div>
-    <div id="navigation" class="navigation-container">
-        <ul>
-            <li class="active-menu"><a href="{{route('admin.dashboard')}}"><i class="far fa-chart-bar"></i> Dashboard</a></li>
-            <li><a href="{{route('admin.settings')}}"><i class="fas fa-cog"></i>Website settings</a></li>
-     
-            {{-- <li><a><i class="fas fa-user"></i>Users</a>
-                <ul>
-                    <li>
-                        <a href="user.html">User</a>
-                    </li>
-                    <li>
-                        <a href="user-edit.html">User edit</a>
-                    </li>
-                    <li>
-                        <a href="new-user.html">New user</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="db-add-package.html"><i class="fas fa-umbrella-beach"></i>Add Package</a></li>
-            <li>
-                <a><i class="fas fa-hotel"></i></i>packages</a>
-                <ul>
-                    <li><a href="db-package-active.html">Active</a></li>
-                    <li><a href="db-package-pending.html">Pending</a></li>
-                    <li><a href="db-package-expired.html">Expired</a></li>
-                </ul>   
-            </li>
-            <li><a href="db-booking.html"><i class="fas fa-ticket-alt"></i> Booking & Enquiry</a></li>
-            <li><a href="db-wishlist.html"><i class="far fa-heart"></i>Wishlist</a></li>
-            <li><a href="db-comment.html"><i class="fas fa-comments"></i>Comments</a></li>
-            <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li> --}}
-        </ul>
+<div class="sticky">
+    <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
+    <div class="app-sidebar">
+        <div class="side-header">
+            <a class="header-brand1" href="{{route('admin.dashboard')}}">
+                <img src="{{ asset('assets/admin') }}/images/brand/logo-white.png" class="header-brand-img desktop-logo"
+                    alt="logo">
+                <img src="{{ asset('assets/admin') }}/images/brand/icon-white.png" class="header-brand-img toggle-logo"
+                    alt="logo">
+                <img src="{{ asset('assets/admin') }}/images/brand/icon-dark.png" class="header-brand-img light-logo"
+                    alt="logo">
+                <img src="{{ asset('assets/admin') }}/images/brand/logo-dark.png" class="header-brand-img light-logo1"
+                    alt="logo">
+            </a>
+            <!-- LOGO -->
+        </div>
+        <div class="main-sidemenu">
+            <div class="slide-left disabled" id="slide-left"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
+                    width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" />
+                </svg></div>
+            <ul class="side-menu">
+                <li class="sub-category">
+                    <h3>Main</h3>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="{{route('admin.dashboard')}}"><i
+                            class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Dashboard</span></a>
+                </li>
+            </ul>
+            <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
+                    width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z" />
+                </svg></div>
+        </div>
     </div>
 </div>

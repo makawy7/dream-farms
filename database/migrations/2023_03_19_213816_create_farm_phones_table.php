@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("number");
             $table->boolean("featured")->default(false);
-            $table->foreignId("address_id")->constrained("farm_addresses")->cascadeOnDelete()->nullable();
+            $table->foreignId("address_id")->nullable()->constrained("farm_addresses")->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -5,7 +5,9 @@
             <div class="col-lg-12">
                 <div class="dashboard-box">
                     <h4>Website Settings</h4>
-                    <form class="form-horizontal" method="post">
+                    <form action="{{ route('admin.settings.update') }}" class="form-horizontal" method="post">
+                        @csrf
+                        @method('PUT')
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
@@ -36,12 +38,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Phone</label>
-                                    <input name="phone" class="form-control" type="text">
-                                </div>
-                            </div>
+
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>City</label>
@@ -50,8 +47,27 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>Country</label>
-                                    <input name="country" class="form-control" type="text">
+                                    <label>Phones</label>
+                                    @forelse ($phones as $phone)
+                                        <input value="{{ $phone->number }}" name="phones[]" class="form-control"
+                                            type="text">
+                                    @empty
+                                        <input value="" name="phones[]" class="form-control" type="text">
+                                    @endforelse
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    @forelse ($addresses as $address)
+                                        <span><b>Adress In English</b></span> <input value="{{ $address->address_en }}"
+                                            name="addresses_en[]" class="form-control" type="text">
+                                        <span><b>Adress In Arabic</b></span> <input value="{{ $address->address_ar }}"
+                                            name="addresses_ar[]" class="form-control" type="text">
+                                    @empty
+                                        <input value="" name="addresses_en[]" class="form-control" type="text">
+                                        <input value="" name="addresses_ar[]" class="form-control" type="text">
+                                    @endforelse
                                 </div>
                             </div>
                             <div class="col-sm-6">
