@@ -34,6 +34,7 @@
     <link href="{{asset("assets/admin")}}/switcher/css/switcher.css" rel="stylesheet">
     <link href="{{asset("assets/admin")}}/switcher/demo.css" rel="stylesheet">
 
+    <script src="{{asset("assets/alpine.min.js")}}"></script>
 </head>
 
 <body class="app sidebar-mini ltr light-mode">
@@ -69,8 +70,6 @@
         <x-admin.footer />
         <!-- FOOTER END -->
 
-    <!-- BACK-TO-TOP -->
-    <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
     <!-- JQUERY JS -->
     <script src="{{asset("assets/admin")}}/js/jquery.min.js"></script>

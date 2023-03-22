@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\SettingController;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Setting\GeneralController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,5 @@ Route::get('/admin', function () {
     return view('admin.index');
 })->name('admin.dashboard');
 
-Route::get('/admin/settings', [SettingController::class, 'index'])->name('admin.settings');
-Route::put('/admin/settings', [SettingController::class, 'update'])->name('admin.settings.update');
+Route::get('/admin/settings/general', [GeneralController::class, 'index'])->name('admin.settings.general');
+Route::put('/admin/settings/general', [GeneralController::class, 'update'])->name('admin.settings.general.update');
