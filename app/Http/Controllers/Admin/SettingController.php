@@ -34,14 +34,10 @@ class SettingController extends Controller
 
         // ]);
         $setting = Setting::first();
-        $phones = FarmPhone::all();
-        $addresses = FarmAddress::all();
         return view(
-            'admin.pages.settings',
+            'admin.pages.settings.general',
             [
-                'setting' => $setting,
-                'phones' => $phones,
-                'addresses' => $addresses,
+                'setting' => $setting
             ]
         );
     }

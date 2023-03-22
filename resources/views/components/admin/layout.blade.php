@@ -50,11 +50,11 @@
         <div class="page-main">
 
             <!-- app-Header -->
-            <x-admin.nav-bar />
+            <x-admin.navbar />
             <!-- /app-Header -->
 
             <!--APP-SIDEBAR-->
-            <x-admin.side-bar />
+            <x-admin.sidebar />
 
             <!--/APP-SIDEBAR-->
 
