@@ -1,151 +1,103 @@
-<!doctype html>
-<html lang="en" dir="ltr">
+<!DOCTYPE html>
+<!--
+Template Name: NobleUI - HTML Bootstrap 5 Admin Dashboard Template
+Author: NobleUI
+Website: https://www.nobleui.com
+Portfolio: https://themeforest.net/user/nobleui/portfolio
+Contact: nobleui123@gmail.com
+Purchase: https://1.envato.market/nobleui_admin
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
+<html lang="en">
 
 <head>
-
-    <!-- META DATA -->
     <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Sash – Bootstrap 5  Admin & Dashboard Template">
-    <meta name="author" content="Spruko Technologies Private Limited">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Responsive HTML Admin Dashboard Template based on Bootstrap 5">
+    <meta name="author" content="NobleUI">
     <meta name="keywords"
-        content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
+        content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-    <!-- FAVICON -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset("assets/admin")}}/images/brand/favicon.ico">
+    <title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
 
-    <!-- TITLE -->
-    <title>Sash – Bootstrap 5 Admin & Dashboard Template </title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- End fonts -->
 
-    <!-- BOOTSTRAP CSS -->
-    <link id="style" href="{{asset("assets/admin")}}/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- core:css -->
+    <link rel="stylesheet" href="{{ asset('assets/admin') }}/vendors/core/core.css">
+    <!-- endinject -->
 
-    <!-- STYLE CSS -->
-     <link href="{{asset("assets/admin")}}/css/style.css" rel="stylesheet">
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('assets/admin') }}/vendors/flatpickr/flatpickr.min.css">
+    <!-- End plugin css for this page -->
 
-	<!-- Plugins CSS -->
-    <link href="{{asset("assets/admin")}}/css/plugins.css" rel="stylesheet">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ asset('assets/admin') }}/fonts/feather-font/css/iconfont.css">
+    <link rel="stylesheet" href="{{ asset('assets/admin') }}/vendors/flag-icon-css/css/flag-icon.min.css">
+    <!-- endinject -->
 
-    <!--- FONT-ICONS CSS -->
-    <link href="{{asset("assets/admin")}}/css/icons.css" rel="stylesheet">
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="{{ asset('assets/admin') }}/css/style.css">
+    <!-- End layout styles -->
 
-    <!-- INTERNAL Switcher css -->
-    <link href="{{asset("assets/admin")}}/switcher/css/switcher.css" rel="stylesheet">
-    <link href="{{asset("assets/admin")}}/switcher/demo.css" rel="stylesheet">
-
-    <script src="{{asset("assets/alpine.min.js")}}"></script>
+    <link rel="shortcut icon" href="{{ asset('assets/admin') }}/images/favicon.png" />
+    <script defer src="{{ asset('assets/') }}/alpine.min.js"></script>
 </head>
 
-<body class="app sidebar-mini ltr light-mode">
+<body>
+    <div class="main-wrapper">
 
+        <!-- partial:partials/_sidebar.html -->
+        <x-admin.sidebar />
+        <!-- partial -->
+        <div class="page-wrapper">
 
-    <!-- GLOBAL-LOADER -->
-    <div id="global-loader">
-        <img src="{{asset("assets/admin")}}/images/loader.svg" class="loader-img" alt="Loader">
-    </div>
-    <!-- /GLOBAL-LOADER -->
-
-    <!-- PAGE -->
-    <div class="page">
-        <div class="page-main">
-
-            <!-- app-Header -->
+            <!-- partial:partials/_navbar.html -->
             <x-admin.navbar />
-            <!-- /app-Header -->
+            <!-- partial -->
 
-            <!--APP-SIDEBAR-->
-            <x-admin.sidebar />
+            <div class="page-content">
 
-            <!--/APP-SIDEBAR-->
+                <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+                    <div>
+                        <h4 class="mb-3 mb-md-0">Header</h4>
+                    </div>
+                </div>
+                <x-admin.alert />
 
-            <!--app-content open-->
-            {{$slot}}
-            <!--app-content close-->
+                {{ $slot }}
+
+            </div>
+
+            <!-- partial:partials/_footer.html -->
+            <x-admin.footer />
+            <!-- partial -->
 
         </div>
+    </div>
 
+    <!-- core:js -->
+    <script src="{{ asset('assets/admin') }}/vendors/core/core.js"></script>
+    <!-- endinject -->
 
-        <!-- FOOTER -->
-        <x-admin.footer />
-        <!-- FOOTER END -->
+    <!-- Plugin js for this page -->
+    <script src="{{ asset('assets/admin') }}/vendors/flatpickr/flatpickr.min.js"></script>
+    <script src="{{ asset('assets/admin') }}/vendors/apexcharts/apexcharts.min.js"></script>
+    <!-- End plugin js for this page -->
 
+    <!-- inject:js -->
+    <script src="{{ asset('assets/admin') }}/vendors/feather-icons/feather.min.js"></script>
+    <script src="{{ asset('assets/admin') }}/js/template.js"></script>
+    <!-- endinject -->
 
-    <!-- JQUERY JS -->
-    <script src="{{asset("assets/admin")}}/js/jquery.min.js"></script>
+    <!-- Custom js for this page -->
+    <script src="{{ asset('assets/admin') }}/js/dashboard-light.js"></script>
+    <!-- End custom js for this page -->
 
-    <!-- BOOTSTRAP JS -->
-    <script src="{{asset("assets/admin")}}/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="{{asset("assets/admin")}}/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- SPARKLINE JS-->
-    <script src="{{asset("assets/admin")}}/js/jquery.sparkline.min.js"></script>
-
-    <!-- Sticky js -->
-    <script src="{{asset("assets/admin")}}/js/sticky.js"></script>
-
-    <!-- CHART-CIRCLE JS-->
-    <script src="{{asset("assets/admin")}}/js/circle-progress.min.js"></script>
-
-    <!-- PIETY CHART JS-->
-    <script src="{{asset("assets/admin")}}/plugins/peitychart/jquery.peity.min.js"></script>
-    <script src="{{asset("assets/admin")}}/plugins/peitychart/peitychart.init.js"></script>
-
-    <!-- SIDEBAR JS -->
-    <script src="{{asset("assets/admin")}}/plugins/sidebar/sidebar.js"></script>
-
-    <!-- Perfect SCROLLBAR JS-->
-    <script src="{{asset("assets/admin")}}/plugins/p-scroll/perfect-scrollbar.js"></script>
-    <script src="{{asset("assets/admin")}}/plugins/p-scroll/pscroll.js"></script>
-    <script src="{{asset("assets/admin")}}/plugins/p-scroll/pscroll-1.js"></script>
-
-    <!-- INTERNAL CHARTJS CHART JS-->
-    <script src="{{asset("assets/admin")}}/plugins/chart/Chart.bundle.js"></script>
-    <script src="{{asset("assets/admin")}}/plugins/chart/utils.js"></script>
-
-    <!-- INTERNAL SELECT2 JS -->
-    <script src="{{asset("assets/admin")}}/plugins/select2/select2.full.min.js"></script>
-
-    <!-- INTERNAL Data tables js-->
-    <script src="{{asset("assets/admin")}}/plugins/datatable/js/jquery.dataTables.min.js"></script>
-    <script src="{{asset("assets/admin")}}/plugins/datatable/js/dataTables.bootstrap5.js"></script>
-    <script src="{{asset("assets/admin")}}/plugins/datatable/dataTables.responsive.min.js"></script>
-
-    <!-- INTERNAL APEXCHART JS -->
-    <script src="{{asset("assets/admin")}}/js/apexcharts.js"></script>
-    <script src="{{asset("assets/admin")}}/plugins/apexchart/irregular-data-series.js"></script>
-
-    <!-- INTERNAL Flot JS -->
-    <script src="{{asset("assets/admin")}}/plugins/flot/jquery.flot.js"></script>
-    <script src="{{asset("assets/admin")}}/plugins/flot/jquery.flot.fillbetween.js"></script>
-    <script src="{{asset("assets/admin")}}/plugins/flot/chart.flot.sampledata.js"></script>
-    <script src="{{asset("assets/admin")}}/plugins/flot/dashboard.sampledata.js"></script>
-
-    <!-- INTERNAL Vector js -->
-    <script src="{{asset("assets/admin")}}/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
-    <script src="{{asset("assets/admin")}}/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-
-    <!-- SIDE-MENU JS-->
-    <script src="{{asset("assets/admin")}}/plugins/sidemenu/sidemenu.js"></script>
-
-	<!-- TypeHead js -->
-	<script src="{{asset("assets/admin")}}/plugins/bootstrap5-typehead/autocomplete.js"></script>
-    <script src="{{asset("assets/admin")}}/js/typehead.js"></script>
-
-    <!-- INTERNAL INDEX JS -->
-    <script src="{{asset("assets/admin")}}/js/index1.js"></script>
-
-    <!-- Color Theme js -->
-    <script src="{{asset("assets/admin")}}/js/themeColors.js"></script>
-
-    <!-- CUSTOM JS -->
-    <script src="{{asset("assets/admin")}}/js/custom.js"></script>
-
-    <!-- Custom-switcher -->
-    <script src="{{asset("assets/admin")}}/js/custom-swicher.js"></script>
-
-    <!-- Switcher js -->
-    <script src="{{asset("assets/admin")}}/switcher/js/switcher.js"></script>
 
 </body>
 

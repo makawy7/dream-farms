@@ -11,17 +11,18 @@ class GeneralController extends Controller
 {
     public function index()
     {
-        $setting = Setting::first();
+        $settings = Setting::first();
         return view(
             'admin.pages.settings.general',
             [
-                'setting' => $setting
+                'settings' => $settings
             ]
         );
     }
 
     public function update(GeneralRequest $request)
     {
-        return 55;
+        Setting::first()->update($request->all());
+        return redirect()->back()->with('success', 'Settings updated successfully');
     }
 }

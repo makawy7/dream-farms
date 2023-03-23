@@ -1,20 +1,31 @@
 $(function() {
-    "use strict";
+  'use strict';
 
-    const ps5 = new PerfectScrollbar('#ChatBody', {
-        useBothWheelAxes: true,
-        suppressScrollX: true,
+  // Applying perfect-scrollbar 
+  if ($('.chat-aside .tab-content #chats').length) {
+    const sidebarBodyScroll = new PerfectScrollbar('.chat-aside .tab-content #chats');
+  }
+  if ($('.chat-aside .tab-content #calls').length) {
+    const sidebarBodyScroll = new PerfectScrollbar('.chat-aside .tab-content #calls');
+  }
+  if ($('.chat-aside .tab-content #contacts').length) {
+    const sidebarBodyScroll = new PerfectScrollbar('.chat-aside .tab-content #contacts');
+  }
+
+  if ($('.chat-content .chat-body').length) {
+    const sidebarBodyScroll = new PerfectScrollbar('.chat-content .chat-body');
+  }
+
+
+
+  $( '.chat-list .chat-item' ).each(function(index) {
+    $(this).on('click', function(){
+      $('.chat-content').toggleClass('show');
     });
-    const ps6 = new PerfectScrollbar('.profile-details-main', {
-        useBothWheelAxes: true,
-        suppressScrollX: true,
-    });
-    const ps7 = new PerfectScrollbar('.main-chat-contacts-slider', {
-        useBothWheelAxes: true,
-        suppressScrollY: true,
-    });
-    const ps18 = new PerfectScrollbar('.main-chat-2', {
-        useBothWheelAxes: true,
-        suppressScrollX: true,
-    });
+  });
+
+  $('#backToChatList').on('click', function(index) {
+    $('.chat-content').toggleClass('show');
+  });
+
 });

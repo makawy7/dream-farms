@@ -1,51 +1,101 @@
-(function($) {
-	"use strict";
+// npm package: owl.carousel
+// github link: https://github.com/OwlCarousel2/OwlCarousel2
 
-    /*---Owl-carousel----*/
+$(function() {
+  'use strict';
 
-    /*--- Owl-carousel-icons ---*/
-    var owl = $('.owl-carousel-icons2');
+  if($('.owl-basic').length) {
+    $('.owl-basic').owlCarousel({
+      loop:true,
+      margin:10,
+      nav:false,
+      responsive:{
+          0:{
+              items:2
+          },
+          600:{
+              items:3
+          },
+          1000:{
+              items:4
+          }
+      }
+    });
+  }
+
+  if($('.owl-auto-play').length) {
+    $('.owl-auto-play').owlCarousel({
+      items:4,
+      loop:true,
+      margin:10,
+      autoplay:true,
+      autoplayTimeout:1000,
+      autoplayHoverPause:true,
+      responsive:{
+        0:{
+            items:2
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:4
+        }
+    }
+    });
+  }
+
+  if($('.owl-fadeout').length) {
+    $('.owl-fadeout').owlCarousel({
+      animateOut: 'fadeOut',
+      items:1,
+      margin:30,
+      stagePadding:30,
+      smartSpeed:450
+    });
+  }
+
+  if($('.owl-animate-css').length) {
+    $('.owl-animate-css').owlCarousel({
+      animateOut: 'animate__animated animate__slideOutDown',
+      animateIn: 'animate__animated animate__flipInX',
+      items:1,
+      margin:30,
+      stagePadding:30,
+      smartSpeed:450
+    });
+  }
+
+  if($('.owl-mouse-wheel').length) {
+    var owl = $('.owl-mouse-wheel');
     owl.owlCarousel({
-        loop: true,
-        rewind: false,
-        margin: 25,
-        animateIn: 'fadeInDowm',
-        animateOut: 'fadeOutDown',
-        autoplay: false,
-        autoplayTimeout: 5000, // set value to change speed
-        autoplayHoverPause: true,
-        dots: false,
-        nav: true,
-        autoplay: true,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: true
+        loop:true,
+        nav:false,
+        margin:10,
+        responsive:{
+            0:{
+                items:2
             },
-            600: {
-                items: 2,
-                nav: true
+            600:{
+                items:3
+            },            
+            960:{
+                items:3
             },
-            1300: {
-                items: 4,
-                nav: true
+            1200:{
+                items:4
             }
         }
-    })
-    owlRtl()
-
-})(jQuery);
-
-function owlRtl() {
-	"use strict";
-    
-    //RTL Owl-carousel
-    var carousel = $('.rtl .owl-carousel');
-    $.each(carousel, function(index, element) {
-        var carouselData = $(element).data('owl.carousel');
-        carouselData.settings.rtl = true; //don't know if both are necessary
-        carouselData.options.rtl = true;
-        $(element).trigger('refresh.owl.carousel');
     });
-}
+    owl.on('mousewheel', '.owl-stage', function (e) {
+        if (e.deltaY>0) {
+            owl.trigger('next.owl');
+        } else {
+            owl.trigger('prev.owl');
+        }
+        e.preventDefault();
+    });
+
+  }
+
+});

@@ -1,10 +1,4 @@
-<footer class="footer">
-    <div class="container">
-        <div class="row align-items-center flex-row-reverse">
-            <div class="col-md-12 col-sm-12 text-center">
-                Copyright © <span id="year"></span> <a href="javascript:void(0)">Sash</a>. Designed with <span
-                    class="fa fa-heart text-danger"></span> by <a href="javascript:void(0)"> Spruko </a> All rights reserved.
-            </div>
-        </div>
-    </div>
+<footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
+    <p class="text-muted mb-1 mb-md-0">Copyright © 2022 <a href="https://www.nobleui.com" target="_blank">NobleUI</a>.</p>
+    <p class="text-muted">Handcrafted With <i class="mb-1 text-primary ms-1 icon-sm" data-feather="heart"></i></p>
 </footer>

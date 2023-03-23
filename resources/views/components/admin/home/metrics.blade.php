@@ -1,86 +1,162 @@
 <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xl-3">
-                <div class="card overflow-hidden">
+    <div class="col-12 col-xl-12 stretch-card">
+        <div class="row flex-grow-1">
+            <div class="col-md-4 grid-margin stretch-card">
+                <div class="card">
                     <div class="card-body">
-                        <div class="d-flex">
-                            <div class="mt-2">
-                                <h6 class="">Total Users</h6>
-                                <h2 class="mb-0 number-font">44,278</h2>
-                            </div>
-                            <div class="ms-auto">
-                                <div class="chart-wrapper mt-1">
-                                    <canvas id="saleschart" class="h-8 w-9 chart-dropshadow"></canvas>
+                        <div class="d-flex justify-content-between align-items-baseline">
+                            <h6 class="card-title mb-0">New Customers</h6>
+                            <div class="dropdown mb-2">
+                                <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-lg text-muted pb-3px"
+                                        data-feather="more-horizontal"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="javascript:;"><i data-feather="eye"
+                                            class="icon-sm me-2"></i> <span
+                                            class="">View</span></a>
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="javascript:;"><i data-feather="edit-2"
+                                            class="icon-sm me-2"></i> <span
+                                            class="">Edit</span></a>
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="javascript:;"><i data-feather="trash"
+                                            class="icon-sm me-2"></i> <span
+                                            class="">Delete</span></a>
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="javascript:;"><i data-feather="printer"
+                                            class="icon-sm me-2"></i> <span
+                                            class="">Print</span></a>
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="javascript:;"><i data-feather="download"
+                                            class="icon-sm me-2"></i> <span
+                                            class="">Download</span></a>
                                 </div>
                             </div>
                         </div>
-                        <span class="text-muted fs-12"><span class="text-secondary"><i
-                                    class="fe fe-arrow-up-circle  text-secondary"></i> 5%</span>
-                            Last week</span>
+                        <div class="row">
+                            <div class="col-6 col-md-12 col-xl-5">
+                                <h3 class="mb-2">3,897</h3>
+                                <div class="d-flex align-items-baseline">
+                                    <p class="text-success">
+                                        <span>+3.3%</span>
+                                        <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-12 col-xl-7">
+                                <div id="customersChart" class="mt-md-3 mt-xl-0"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xl-3">
-                <div class="card overflow-hidden">
+            <div class="col-md-4 grid-margin stretch-card">
+                <div class="card">
                     <div class="card-body">
-                        <div class="d-flex">
-                            <div class="mt-2">
-                                <h6 class="">Total Profit</h6>
-                                <h2 class="mb-0 number-font">67,987</h2>
-                            </div>
-                            <div class="ms-auto">
-                                <div class="chart-wrapper mt-1">
-                                    <canvas id="leadschart" class="h-8 w-9 chart-dropshadow"></canvas>
+                        <div class="d-flex justify-content-between align-items-baseline">
+                            <h6 class="card-title mb-0">New Orders</h6>
+                            <div class="dropdown mb-2">
+                                <a type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-lg text-muted pb-3px"
+                                        data-feather="more-horizontal"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="javascript:;"><i data-feather="eye"
+                                            class="icon-sm me-2"></i> <span
+                                            class="">View</span></a>
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="javascript:;"><i data-feather="edit-2"
+                                            class="icon-sm me-2"></i> <span
+                                            class="">Edit</span></a>
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="javascript:;"><i data-feather="trash"
+                                            class="icon-sm me-2"></i> <span
+                                            class="">Delete</span></a>
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="javascript:;"><i data-feather="printer"
+                                            class="icon-sm me-2"></i> <span
+                                            class="">Print</span></a>
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="javascript:;"><i data-feather="download"
+                                            class="icon-sm me-2"></i> <span
+                                            class="">Download</span></a>
                                 </div>
                             </div>
                         </div>
-                        <span class="text-muted fs-12"><span class="text-pink"><i
-                                    class="fe fe-arrow-down-circle text-pink"></i> 0.75%</span>
-                            Last 6 days</span>
+                        <div class="row">
+                            <div class="col-6 col-md-12 col-xl-5">
+                                <h3 class="mb-2">35,084</h3>
+                                <div class="d-flex align-items-baseline">
+                                    <p class="text-danger">
+                                        <span>-2.8%</span>
+                                        <i data-feather="arrow-down" class="icon-sm mb-1"></i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-12 col-xl-7">
+                                <div id="ordersChart" class="mt-md-3 mt-xl-0"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xl-3">
-                <div class="card overflow-hidden">
+            <div class="col-md-4 grid-margin stretch-card">
+                <div class="card">
                     <div class="card-body">
-                        <div class="d-flex">
-                            <div class="mt-2">
-                                <h6 class="">Total Expenses</h6>
-                                <h2 class="mb-0 number-font">$76,965</h2>
-                            </div>
-                            <div class="ms-auto">
-                                <div class="chart-wrapper mt-1">
-                                    <canvas id="profitchart" class="h-8 w-9 chart-dropshadow"></canvas>
+                        <div class="d-flex justify-content-between align-items-baseline">
+                            <h6 class="card-title mb-0">Growth</h6>
+                            <div class="dropdown mb-2">
+                                <a type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-lg text-muted pb-3px"
+                                        data-feather="more-horizontal"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="javascript:;"><i data-feather="eye"
+                                            class="icon-sm me-2"></i> <span
+                                            class="">View</span></a>
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="javascript:;"><i data-feather="edit-2"
+                                            class="icon-sm me-2"></i> <span
+                                            class="">Edit</span></a>
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="javascript:;"><i data-feather="trash"
+                                            class="icon-sm me-2"></i> <span
+                                            class="">Delete</span></a>
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="javascript:;"><i data-feather="printer"
+                                            class="icon-sm me-2"></i> <span
+                                            class="">Print</span></a>
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="javascript:;"><i data-feather="download"
+                                            class="icon-sm me-2"></i> <span
+                                            class="">Download</span></a>
                                 </div>
                             </div>
                         </div>
-                        <span class="text-muted fs-12"><span class="text-green"><i
-                                    class="fe fe-arrow-up-circle text-green"></i> 0.9%</span>
-                            Last 9 days</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xl-3">
-                <div class="card overflow-hidden">
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <div class="mt-2">
-                                <h6 class="">Total Cost</h6>
-                                <h2 class="mb-0 number-font">$59,765</h2>
-                            </div>
-                            <div class="ms-auto">
-                                <div class="chart-wrapper mt-1">
-                                    <canvas id="costchart" class="h-8 w-9 chart-dropshadow"></canvas>
+                        <div class="row">
+                            <div class="col-6 col-md-12 col-xl-5">
+                                <h3 class="mb-2">89.87%</h3>
+                                <div class="d-flex align-items-baseline">
+                                    <p class="text-success">
+                                        <span>+2.8%</span>
+                                        <i data-feather="arrow-up" class="icon-sm mb-1"></i>
+                                    </p>
                                 </div>
                             </div>
+                            <div class="col-6 col-md-12 col-xl-7">
+                                <div id="growthChart" class="mt-md-3 mt-xl-0"></div>
+                            </div>
                         </div>
-                        <span class="text-muted fs-12"><span class="text-warning"><i
-                                    class="fe fe-arrow-up-circle text-warning"></i> 0.6%</span>
-                            Last year</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> <!-- row -->

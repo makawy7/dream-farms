@@ -1,171 +1,226 @@
-//FULL CALENDAR
+// npm package: fullcalendar
+// github link: https://github.com/fullcalendar/fullcalendar
 
-document.addEventListener('DOMContentLoaded', function() {
-    var containerEl = document.getElementById('external-events');
-    new FullCalendar.Draggable(containerEl, {
-        itemSelector: '.fc-event',
-        eventData: function(eventEl) {
-            return {
-                title: eventEl.innerText.trim(),
-                title: eventEl.innerText,
-                className: eventEl.className + ' overflow-hidden '
-            }
-        }
-    });
-    var calendarEl = document.getElementById('calendar2');
+$(function() {
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay'
-        },
+  // sample calendar events data
 
-        // defaultView: 'month',
-        navLinks: true, // can click day/week names to navigate views
-        businessHours: true, // display business hours
-        editable: true,
-        selectable: true,
-        selectMirror: true,
-        droppable: true, // this allows things to be dropped onto the calendar
-        select: function(arg) {
-            var title = prompt('Event Title:');
-            if (title) {
-                calendar.addEvent({
-                    title: title,
-                    start: arg.start,
-                    end: arg.end,
-                    allDay: arg.allDay
-                })
-            }
-            calendar.unselect()
-        },
-        eventClick: function(arg) {
-            if (confirm('Are you sure you want to delete this event?')) {
-                arg.event.remove()
-            }
-        },
-        editable: true,
-        dayMaxEvents: true, // allow "more" link when too many events
-        events: [{
-                title: 'Business Lunch',
-                start: '2021-03-03T13:00:00',
-                constraint: 'businessHours'
-            }, {
-                title: 'Meeting',
-                start: '2021-03-13T11:00:00',
-                constraint: 'availableForMeeting', // defined below
-                color: '#f35e90'
-            }, {
-                title: 'Conference',
-                start: '2021-07-18',
-                end: '2021-07-20',
-                color: '#e67e22'
-            }, {
-                title: 'Party',
-                start: '2021-07-29T20:00:00',
-                color: '#22c865'
-            },
-            // areas where "Meeting" must be dropped
-            {
-                id: 'availableForMeeting',
-                start: '2021-03-11T10:00:00',
-                end: '2021-03-11T16:00:00',
-                rendering: 'background',
-                color: '#5e72e4'
-            }, {
-                id: 'availableForMeeting',
-                start: '2021-03-13T10:00:00',
-                end: '2021-03-13T16:00:00',
-                rendering: 'background'
-            },
-            // red areas where no events can be dropped
-            {
-                start: '2021-03-24',
-                end: '2021-03-28',
-                overlap: false,
-                rendering: 'background',
-                color: 'rgba(0,0,0,0.1)'
-            }, {
-                start: '2021-03-06',
-                end: '2021-03-11',
-                overlap: false,
-                rendering: 'background',
-                color: 'rgba(0,0,0,0.1)'
-            }
-        ]
-    });
+  var Draggable = FullCalendar.Draggable;
+  var calendarEl = document.getElementById('fullcalendar');
+  var containerEl = document.getElementById('external-events');
 
-    calendar.render();
-});
+  var curYear = moment().format('YYYY');
+  var curMonth = moment().format('MM');
 
-//LIST FULLCALENDAR
-document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        height: 'auto',
-        headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'listDay,listWeek'
-        },
+  // Calendar Event Source
+  var calendarEvents = {
+    id: 1,
+    backgroundColor: 'rgba(1,104,250, .15)',
+    borderColor: '#0168fa',
+    events: [
+      {
+        id: '1',
+        start: curYear+'-'+curMonth+'-08T08:30:00',
+        end: curYear+'-'+curMonth+'-08T13:00:00',
+        title: 'Google Developers Meetup',
+        description: 'In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis az pede mollis...'
+      },{
+        id: '2',
+        start: curYear+'-'+curMonth+'-10T09:00:00',
+        end: curYear+'-'+curMonth+'-10T17:00:00',
+        title: 'Design/Code Review',
+        description: 'In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis az pede mollis...'
+      },{
+        id: '3',
+        start: curYear+'-'+curMonth+'-13T12:00:00',
+        end: curYear+'-'+curMonth+'-13T18:00:00',
+        title: 'Lifestyle Conference',
+        description: 'Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi...'
+      },{
+        id: '4',
+        start: curYear+'-'+curMonth+'-15T07:30:00',
+        end: curYear+'-'+curMonth+'-15T15:30:00',
+        title: 'Team Weekly Trip',
+        description: 'In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis az pede mollis...'
+      },{
+        id: '5',
+        start: curYear+'-'+curMonth+'-17T10:00:00',
+        end: curYear+'-'+curMonth+'-19T15:00:00',
+        title: 'DJ Festival',
+        description: 'In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis az pede mollis...'
+      },{
+        id: '6',
+        start: curYear+'-'+curMonth+'-08T13:00:00',
+        end: curYear+'-'+curMonth+'-08T18:30:00',
+        title: 'Carl Henson\'s Wedding',
+        description: 'In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis az pede mollis...'
+      }
+    ]
+  };
 
-        // customize the button names,
-        // otherwise they'd all just say "list"
-        views: {
-            listDay: { buttonText: 'list day' },
-            listWeek: { buttonText: 'list week' }
-        },
-        initialView: 'listWeek',
-        initialDate: '2021-07-12',
-        navLinks: true, // can click day/week names to navigate views
-        editable: true,
-        // eventLimit: true, // allow "more" link when too many events
-        dayMaxEvents: true, // allow "more" link when too many events
-        events: [{
-            title: 'All Day Event',
-            start: '2021-11-01'
-        }, {
-            title: 'Long Event',
-            start: '2019-11-07',
-            end: '2021-03-10'
-        }, {
-            id: 999,
-            title: 'Repeating Event',
-            start: '2021-11-09T16:00:00'
-        }, {
-            id: 999,
-            title: 'Repeating Event',
-            start: '2021-11-16T16:00:00'
-        }, {
-            title: 'Conference',
-            start: '2019-11-11',
-            end: '2021-11-13'
-        }, {
-            title: 'Meeting',
-            start: '2019-11-12T10:30:00',
-            end: '2021-11-12T12:30:00'
-        }, {
-            title: 'Lunch',
-            start: '2021-11-12T12:00:00'
-        }, {
-            title: 'Meeting',
-            start: '2021-11-12T14:30:00'
-        }, {
-            title: 'Happy Hour',
-            start: '2021-11-12T17:30:00'
-        }, {
-            title: 'Dinner',
-            start: '2021-11-12T20:00:00'
-        }, {
-            title: 'Birthday Party',
-            start: '2021-11-13T07:00:00'
-        }, {
-            title: 'Click for Google',
-            url: 'http://google.com/',
-            start: '2021-11-28'
-        }]
-    });
+  // Birthday Events Source
+  var birthdayEvents = {
+    id: 2,
+    backgroundColor: 'rgba(16,183,89, .25)',
+    borderColor: '#10b759',
+    events: [
+      {
+        id: '7',
+        start: curYear+'-'+curMonth+'-01T18:00:00',
+        end: curYear+'-'+curMonth+'-01T23:30:00',
+        title: 'Jensen Birthday',
+        description: 'In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis az pede mollis...'
+      },
+      {
+        id: '8',
+        start: curYear+'-'+curMonth+'-21T15:00:00',
+        end: curYear+'-'+curMonth+'-21T21:00:00',
+        title: 'Carl\'s Birthday',
+        description: 'In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis az pede mollis...'
+      },
+      {
+        id: '9',
+        start: curYear+'-'+curMonth+'-23T15:00:00',
+        end: curYear+'-'+curMonth+'-23T21:00:00',
+        title: 'Yaretzi\'s Birthday',
+        description: 'In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis az pede mollis...'
+      }
+    ]
+  };
 
-    calendar.render();
+
+  var holidayEvents = {
+    id: 3,
+    backgroundColor: 'rgba(241,0,117,.25)',
+    borderColor: '#f10075',
+    events: [
+      {
+        id: '10',
+        start: curYear+'-'+curMonth+'-04',
+        end: curYear+'-'+curMonth+'-06',
+        title: 'Feast Day'
+      },
+      {
+        id: '11',
+        start: curYear+'-'+curMonth+'-26',
+        end: curYear+'-'+curMonth+'-27',
+        title: 'Memorial Day'
+      },
+      {
+        id: '12',
+        start: curYear+'-'+curMonth+'-28',
+        end: curYear+'-'+curMonth+'-29',
+        title: 'Veteran\'s Day'
+      }
+    ]
+  };
+
+  var discoveredEvents = {
+    id: 4,
+    backgroundColor: 'rgba(0,204,204,.25)',
+    borderColor: '#00cccc',
+    events: [
+      {
+        id: '13',
+        start: curYear+'-'+curMonth+'-17T08:00:00',
+        end: curYear+'-'+curMonth+'-18T11:00:00',
+        title: 'Web Design Workshop Seminar'
+      }
+    ]
+  };
+
+  var meetupEvents = {
+    id: 5,
+    backgroundColor: 'rgba(91,71,251,.2)',
+    borderColor: '#5b47fb',
+    events: [
+      {
+        id: '14',
+        start: curYear+'-'+curMonth+'-03',
+        end: curYear+'-'+curMonth+'-05',
+        title: 'UI/UX Meetup Conference'
+      },
+      {
+        id: '15',
+        start: curYear+'-'+curMonth+'-18',
+        end: curYear+'-'+curMonth+'-20',
+        title: 'Angular Conference Meetup'
+      }
+    ]
+  };
+
+
+  var otherEvents = {
+    id: 6,
+    backgroundColor: 'rgba(253,126,20,.25)',
+    borderColor: '#fd7e14',
+    events: [
+      {
+        id: '16',
+        start: curYear+'-'+curMonth+'-06',
+        end: curYear+'-'+curMonth+'-08',
+        title: 'My Rest Day'
+      },
+      {
+        id: '17',
+        start: curYear+'-'+curMonth+'-29',
+        end: curYear+'-'+curMonth+'-31',
+        title: 'My Rest Day'
+      }
+    ]
+  };
+
+  new Draggable(containerEl, {
+    itemSelector: '.fc-event',
+    eventData: function(eventEl) {
+      return {
+        title: eventEl.innerText
+      };
+    }
+  });
+
+
+  // initialize the calendar
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    headerToolbar: {
+      left: "prev,today,next",
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+    },
+    editable: true,
+    droppable: true, // this allows things to be dropped onto the calendar
+    fixedWeekCount: true,
+    // height: 300,
+    initialView: 'dayGridMonth',
+    timeZone: 'UTC',
+    hiddenDays:[],
+    navLinks: 'true',
+    // weekNumbers: true,
+    // weekNumberFormat: {
+    //   week:'numeric',
+    // },
+    dayMaxEvents: 2,
+    events: [],
+    eventSources: [calendarEvents, birthdayEvents, holidayEvents, discoveredEvents, meetupEvents, otherEvents],
+    drop: function(info) {
+        // remove the element from the "Draggable Events" list
+        // info.draggedEl.parentNode.removeChild(info.draggedEl);
+    },
+    eventClick: function(info) {
+      var eventObj = info.event;
+      console.log(info);
+      $('#modalTitle1').html(eventObj.title);
+      $('#modalBody1').html(eventObj._def.extendedProps.description);
+      $('#eventUrl').attr('href',eventObj.url);
+      $('#fullCalModal').modal("show");
+    },
+    dateClick: function(info) {
+      $("#createEventModal").modal("show");
+      console.log(info);
+    },
+  });
+
+  calendar.render();
+
+
 });

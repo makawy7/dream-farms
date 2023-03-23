@@ -1,92 +1,82 @@
-<div class="dropdown  d-flex message">
-    <a class="nav-link icon text-center" data-bs-toggle="dropdown">
-        <i class="fe fe-message-square"></i><span class="pulse-danger"></span>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button"
+        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i data-feather="mail"></i>
     </a>
-    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-        <div class="drop-heading border-bottom">
-            <div class="d-flex">
-                <h6 class="mt-1 mb-0 fs-16 fw-semibold text-dark">You have 5
-                    Messages</h6>
-                <div class="ms-auto">
-                    <a href="javascript:void(0)" class="text-muted p-0 fs-12">make all unread</a>
-                </div>
-            </div>
+    <div class="dropdown-menu p-0" aria-labelledby="messageDropdown">
+        <div class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
+            <p>9 New Messages</p>
+            <a href="javascript:;" class="text-muted">Clear all</a>
         </div>
-        <div class="message-menu message-menu-scroll">
-            <a class="dropdown-item d-flex" href="chat.html">
-                <span
-                    class="avatar avatar-md brround me-3 align-self-center cover-image"
-                    data-bs-image-src="{{asset("assets/admin")}}/images/users/1.jpg"></span>
-                <div class="wd-90p">
-                    <div class="d-flex">
-                        <h5 class="mb-1">Peter Theil</h5>
-                        <small class="text-muted ms-auto text-end">
-                            6:45 am
-                        </small>
+        <div class="p-1">
+            <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                <div class="me-3">
+                    <img class="wd-30 ht-30 rounded-circle"
+                        src="https://via.placeholder.com/30x30" alt="userr">
+                </div>
+                <div class="d-flex justify-content-between flex-grow-1">
+                    <div class="me-4">
+                        <p>Leonardo Payne</p>
+                        <p class="tx-12 text-muted">Project status</p>
                     </div>
-                    <span>Commented on file Guest list....</span>
+                    <p class="tx-12 text-muted">2 min ago</p>
                 </div>
             </a>
-            <a class="dropdown-item d-flex" href="chat.html">
-                <span
-                    class="avatar avatar-md brround me-3 align-self-center cover-image"
-                    data-bs-image-src="{{asset("assets/admin")}}/images/users/15.jpg"></span>
-                <div class="wd-90p">
-                    <div class="d-flex">
-                        <h5 class="mb-1">Abagael Luth</h5>
-                        <small class="text-muted ms-auto text-end">
-                            10:35 am
-                        </small>
+            <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                <div class="me-3">
+                    <img class="wd-30 ht-30 rounded-circle"
+                        src="https://via.placeholder.com/30x30" alt="userr">
+                </div>
+                <div class="d-flex justify-content-between flex-grow-1">
+                    <div class="me-4">
+                        <p>Carl Henson</p>
+                        <p class="tx-12 text-muted">Client meeting</p>
                     </div>
-                    <span>New Meetup Started......</span>
+                    <p class="tx-12 text-muted">30 min ago</p>
                 </div>
             </a>
-            <a class="dropdown-item d-flex" href="chat.html">
-                <span
-                    class="avatar avatar-md brround me-3 align-self-center cover-image"
-                    data-bs-image-src="{{asset("assets/admin")}}/images/users/12.jpg"></span>
-                <div class="wd-90p">
-                    <div class="d-flex">
-                        <h5 class="mb-1">Brizid Dawson</h5>
-                        <small class="text-muted ms-auto text-end">
-                            2:17 pm
-                        </small>
+            <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                <div class="me-3">
+                    <img class="wd-30 ht-30 rounded-circle"
+                        src="https://via.placeholder.com/30x30" alt="userr">
+                </div>
+                <div class="d-flex justify-content-between flex-grow-1">
+                    <div class="me-4">
+                        <p>Jensen Combs</p>
+                        <p class="tx-12 text-muted">Project updates</p>
                     </div>
-                    <span>Brizid is in the Warehouse...</span>
+                    <p class="tx-12 text-muted">1 hrs ago</p>
                 </div>
             </a>
-            <a class="dropdown-item d-flex" href="chat.html">
-                <span
-                    class="avatar avatar-md brround me-3 align-self-center cover-image"
-                    data-bs-image-src="{{asset("assets/admin")}}/images/users/4.jpg"></span>
-                <div class="wd-90p">
-                    <div class="d-flex">
-                        <h5 class="mb-1">Shannon Shaw</h5>
-                        <small class="text-muted ms-auto text-end">
-                            7:55 pm
-                        </small>
+            <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                <div class="me-3">
+                    <img class="wd-30 ht-30 rounded-circle"
+                        src="https://via.placeholder.com/30x30" alt="userr">
+                </div>
+                <div class="d-flex justify-content-between flex-grow-1">
+                    <div class="me-4">
+                        <p>Amiah Burton</p>
+                        <p class="tx-12 text-muted">Project deatline</p>
                     </div>
-                    <span>New Product Realease......</span>
+                    <p class="tx-12 text-muted">2 hrs ago</p>
                 </div>
             </a>
-            <a class="dropdown-item d-flex" href="chat.html">
-                <span
-                    class="avatar avatar-md brround me-3 align-self-center cover-image"
-                    data-bs-image-src="{{asset("assets/admin")}}/images/users/3.jpg"></span>
-                <div class="wd-90p">
-                    <div class="d-flex">
-                        <h5 class="mb-1">Cherry Blossom</h5>
-                        <small class="text-muted ms-auto text-end">
-                            7:55 pm
-                        </small>
+            <a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                <div class="me-3">
+                    <img class="wd-30 ht-30 rounded-circle"
+                        src="https://via.placeholder.com/30x30" alt="userr">
+                </div>
+                <div class="d-flex justify-content-between flex-grow-1">
+                    <div class="me-4">
+                        <p>Yaretzi Mayo</p>
+                        <p class="tx-12 text-muted">New record</p>
                     </div>
-                    <span>You have appointment on......</span>
+                    <p class="tx-12 text-muted">5 hrs ago</p>
                 </div>
             </a>
-
         </div>
-        <div class="dropdown-divider m-0"></div>
-        <a href="javascript:void(0)" class="dropdown-item text-center p-3 text-muted">See all
-            Messages</a>
+        <div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
+            <a href="javascript:;">View all</a>
+        </div>
     </div>
-</div>
+</li>

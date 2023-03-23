@@ -1,163 +1,118 @@
 <x-admin.layout>
 
-    <div class="main-content app-content mt-0">
-        <div class="side-app">
-
-            <!-- CONTAINER -->
-            <div class="main-container container-fluid">
-
-                <!-- PAGE-HEADER -->
-                <div class="page-header">
-                    <h1 class="page-title">General Settings</h1>
-                    @if ($errors->any())
-                        {{ $errors }}
-                    @endif
-                </div>
-                <!-- PAGE-HEADER END -->
-
-                <!-- ROW-1 OPEN -->
-                <div class="row">
-
-                    <div class="col-xl-12">
-                        <div x-data="{ submitForm: () => $el.submit() }" method="POST" action="{{ route('admin.settings.general.update') }}"
-                            class="card">
-                            @csrf
-                            @method('PUT')
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="form-group">
-                                            <label class="form-label" for="website_name_en">Website Name
-                                                (English):</label>
-                                            <input type="text"
-                                                class="form-control {{ $errors->has('website_name_en') ? 'is-invalid' : '' }}"
-                                                name="website_name_en" id="website_name_en"
-                                                value="{{ old('website_name_en') ?? $setting->website_name_en }}"
-                                                placeholder="Website Name In Arabic">
-                                            @error('website_name_en')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="form-group">
-                                            <label class="form-label" for="website_name_ar">Website Name
-                                                (Arabic):</label>
-                                            <input type="text"
-                                                class="form-control {{ $errors->has('website_name_ar') ? 'is-invalid' : '' }}"
-                                                name="website_name_ar" id="website_name_ar"
-                                                value="{{ old('website_name_ar') ?? $setting->website_name_ar }}"
-                                                placeholder="Website Name In English">
-                                            @error('website_name_ar')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label  " for="email">Website Email:</label>
-                                    <input type="email" value="{{ old('email') ?? $setting->email }}"
-                                        class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}"
-                                        id="email" name="email" placeholder="Email address">
-                                    @error('email')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Default Locale:</label>
-                                    <div class="row">
-                                        <div class="col-md-12 mb-2">
-                                            <select name="default_locale"
-                                                class="form-control select2 form-select  {{ $errors->has('default_locale') ? 'is-invalid' : '' }}">
-                                                <option {{ $setting->default_locale === 'en' ? 'selected' : '' }}
-                                                    value="en">English</option>
-                                                <option {{ $setting->default_locale === 'ar' ? 'selected' : '' }}
-                                                    value="ar">Arabic</option>
-                                            </select>
-                                            @error('default_locale')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Default Currency:</label>
-                                    <div class="row">
-                                        <div class="col-md-12 mb-2">
-                                            <select name="currency"
-                                                class="form-control select2 form-select  {{ $errors->has('currency') ? 'is-invalid' : '' }}">
-                                                <option {{ $setting->currency === 'EGP' ? 'selected' : '' }}
-                                                    value="EGP">EGP</option>
-                                                <option {{ $setting->currency === 'USD' ? 'selected' : '' }}
-                                                    value="USD">USD</option>
-                                            </select>
-                                            @error('currency')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Website Motto (English):</label>
-                                    <textarea class="form-control  {{ $errors->has('motto_en') ? 'is-invalid' : '' }}" name="motto_en" rows="4">{{ old('motto_en') ?? $setting->motto_en }}</textarea>
-                                    @error('motto_en')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Website Motto (Arabic):</label>
-                                    <textarea class="form-control  {{ $errors->has('motto_ar') ? 'is-invalid' : '' }}" name="motto_ar" rows="4">{{ old('motto_ar') ?? $setting->motto_ar }}</textarea>
-                                    @error('motto_ar')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Website Information (English):</label>
-                                    <textarea class="form-control  {{ $errors->has('info_en') ? 'is-invalid' : '' }}" name="info_en" rows="4">{{ old('info_en') ?? $setting->info_en }}</textarea>
-                                    @error('info_en')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Website Information (Arabic):</label>
-                                    <textarea class="form-control  {{ $errors->has('info_ar') ? 'is-invalid' : '' }}" name="info_ar" rows="4">{{ old('info_ar') ?? $setting->info_ar }}</textarea>
-                                    @error('info_ar')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                    @enderror
-                                </div>
-
+    <div class="row">
+        <div id="form" class="col-md-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" action="{{ route('admin.settings.general.update') }}">
+                        @csrf
+                        @method('PUT')
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="name_en" class="form-label">Website Name (English)</label>
+                                <input id="name_en" value="{{ old('website_name_en') ?? $settings->website_name_en }}"
+                                    class="form-control {{ $errors->has('website_name_en') ? 'is-invalid' : '' }}"
+                                    name="website_name_en" type="text">
+                                @error('website_name_en')
+                                    <label class="error invalid-feedback">{{ $message }}</label>
+                                @enderror
                             </div>
-                            <div class="card-footer text-end">
-                                <a @click="submitForm" type="submit"
-                                    class="btn btn-success my-1">Update</a>
+                            <div class="col-md-6">
+                                <label for="name_ar" class="form-label">Website Name (Arabic)</label>
+                                <input id="name_ar" value="{{ old('website_name_ar') ?? $settings->website_name_ar }}"
+                                    class="form-control {{ $errors->has('website_name_ar') ? 'is-invalid' : '' }}"
+                                    name="website_name_ar" type="text">
+                                @error('website_name_ar')
+                                    <label class="error invalid-feedback">{{ $message }}</label>
+                                @enderror
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input id="email" value="{{ old('email') ?? $settings->email }}"
+                                class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email"
+                                type="text">
+                            @error('email')
+                                <label class="error invalid-feedback">{{ $message }}</label>
+                            @enderror
+                        </div>
 
-                    </div>
+                        <div class="mb-3">
+                            <label for="default_locale" class="form-label">Default Locale</label>
+                            <select class="form-select {{ $errors->has('default_locale') ? 'is-invalid' : '' }}"
+                                name="default_locale" id="default_locale">
+                                <option {{ $settings->default_locale === 'en' ? 'selected' : '' }} value="en">
+                                    English</option>
+                                <option {{ $settings->default_locale === 'ar' ? 'selected' : '' }} value="ar">
+                                    Arabic</option>
+                            </select>
+                            @error('default_locale')
+                                <label class="error invalid-feedback">{{ $message }}</label>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="currency" class="form-label">Currency</label>
+                            <select class="form-select {{ $errors->has('currency') ? 'is-invalid' : '' }}"
+                                name="currency" id="currency">
+                                <option {{ $settings->currency === 'EGP' ? 'selected' : '' }} value="EGP">EGP
+                                </option>
+                                <option {{ $settings->currency === 'USD' ? 'selected' : '' }} value="USD">USD
+                                </option>
+                            </select>
+                            @error('currency')
+                                <label class="error invalid-feedback">{{ $message }}</label>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="motto_en" class="form-label">Motto (English)</label>
+                            <textarea id="motto_en" class="form-control {{ $errors->has('motto_en') ? 'is-invalid' : '' }}" name="motto_en"
+                                rows="4" placeholder="Website motto en .....">{{ old('motto_en') ?? $settings->motto_en }}</textarea>
+
+                            @error('motto_en')
+                                <label class="error invalid-feedback">{{ $message }}</label>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="motto_ar" class="form-label">Motto (Arabic)</label>
+                            <textarea id="motto_ar" class="form-control {{ $errors->has('motto_ar') ? 'is-invalid' : '' }}" name="motto_ar"
+                                rows="4" placeholder="Website motto ar .....">{{ old('motto_ar') ?? $settings->motto_ar }}</textarea>
+
+                            @error('motto_ar')
+                                <label class="error invalid-feedback">{{ $message }}</label>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="info_en" class="form-label">Information (English)</label>
+                            <textarea id="info_en" class="form-control {{ $errors->has('info_en') ? 'is-invalid' : '' }}" name="info_en"
+                                rows="4" placeholder="Website Info en .....">{{ old('info_en') ?? $settings->info_en }}</textarea>
+
+                            @error('info_en')
+                                <label class="error invalid-feedback">{{ $message }}</label>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="info_ar" class="form-label">Information (Arabic)</label>
+                            <textarea id="info_ar" class="form-control {{ $errors->has('info_ar') ? 'is-invalid' : '' }}" name="info_ar"
+                                rows="4" placeholder="Website Info ar .....">{{ old('info_ar') ?? $settings->info_ar }}</textarea>
+
+                            @error('info_ar')
+                                <label class="error invalid-feedback">{{ $message }}</label>
+                            @enderror
+                        </div>
+
+
+                        <input class="btn btn-primary" type="submit" value="Update">
+                    </form>
                 </div>
-                <!-- ROW-1 CLOSED -->
-
             </div>
-            <!--CONTAINER CLOSED -->
-
         </div>
+
     </div>
+
+
 </x-admin.layout>
