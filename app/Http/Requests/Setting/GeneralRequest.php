@@ -25,6 +25,7 @@ class GeneralRequest extends FormRequest
             "website_name_en" => 'required|min:3',
             "website_name_ar" => 'required|min:3',
             "email" => 'sometimes|nullable|email',
+            "logo_url" => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             "motto_en" => 'sometimes|nullable|min:10',
             "motto_ar" => 'sometimes|nullable|min:10',
             "info_en" => 'sometimes|nullable|min:10',

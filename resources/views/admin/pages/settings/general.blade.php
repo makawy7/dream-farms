@@ -4,7 +4,8 @@
         <div id="form" class="col-md-12 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.settings.general.update') }}">
+                    <form method="POST" action="{{ route('admin.settings.general.update') }}"
+                        enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row mb-3">
@@ -63,6 +64,20 @@
                             @error('currency')
                                 <label class="error invalid-feedback">{{ $message }}</label>
                             @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">Website Logo</h6>
+                                    <input name="logo_url"
+                                        data-default-file="{{ asset('storage/' . $settings->logo_url) }}"
+                                        data-allowed-file-extensions="jpg jpeg svg png" type="file" id="myDropify" />
+                                    @error('logo_url')
+                                        <label class="error invalid-feedback">{{ $message }}</label>
+                                    @enderror
+                                </div>
+                            </div>
                         </div>
 
                         <div class="mb-3">

@@ -44,6 +44,8 @@ License: For each use you must have a valid license purchased only from above li
     <link rel="stylesheet" href="{{ asset('assets/admin') }}/css/style.css">
     <!-- End layout styles -->
 
+    <link rel="stylesheet" href="{{ asset('assets/admin') }}/vendors/dropify/dist/dropify.min.css">
+
     <link rel="shortcut icon" href="{{ asset('assets/admin') }}/images/favicon.png" />
     <script defer src="{{ asset('assets/') }}/alpine.min.js"></script>
 </head>
@@ -98,7 +100,8 @@ License: For each use you must have a valid license purchased only from above li
     <script src="{{ asset('assets/admin') }}/js/dashboard-light.js"></script>
     <!-- End custom js for this page -->
 
-
+    <script src="{{ asset('assets/admin') }}/vendors/dropify/dist/dropify.min.js"></script>
+    <script src="{{ asset('assets/admin') }}/js/dropify.js"></script>
 </body>
 
 </html>

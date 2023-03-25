@@ -22,7 +22,11 @@ class GeneralController extends Controller
 
     public function update(GeneralRequest $request)
     {
-        Setting::first()->update($request->all());
+        $requestData = $request->all();
+        if ($request->hasFile('logo_url')) {
+            $requestData['logo_url'] = $request->file('logo_url')->store('images/settings');
+        }
+        Setting::first()->update($requestData);
         return redirect()->back()->with('success', 'Settings updated successfully');
     }
 }
