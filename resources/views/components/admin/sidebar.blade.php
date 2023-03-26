@@ -28,7 +28,7 @@
                 <div class="collapse show" id="forms">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{route('admin.settings.general')}}" class="nav-link active">General</a>
+                            <a href="{{route('admin.settings.general.index')}}" class="nav-link active">General</a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/forms/advanced-elements.html" class="nav-link">Addresses</a>

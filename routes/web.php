@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Setting\AddressController;
 use App\Http\Controllers\Admin\Setting\GeneralController;
 
 /*
@@ -23,5 +24,15 @@ Route::get('/admin', function () {
     return view('admin.index');
 })->name('admin.dashboard');
 
-Route::get('/admin/settings/general', [GeneralController::class, 'index'])->name('admin.settings.general');
-Route::put('/admin/settings/general', [GeneralController::class, 'update'])->name('admin.settings.general.update');
+
+// Admin Settings Routes
+Route::group(['prefix' => 'admin/settings', 'as' => 'admin.settings.'], function () {
+    // General Settings
+    Route::group(['prefix' => 'general', 'as' => 'general.'], function () {
+        Route::get('/', [GeneralController::class, 'index'])->name('index');
+        Route::put('/', [GeneralController::class, 'update'])->name('update');
+    });
+    // Website Addresses Settings
+    Route::resource('/address', AddressController::class)->names('address');
+
+});
