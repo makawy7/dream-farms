@@ -10,7 +10,7 @@ use App\Http\Requests\Setting\AddressRequest;
 class AddressController extends Controller
 {
     public function index()
-    {   
+    {
         $addresses = FarmAddress::all()->load('phone');
         return view('admin.pages.settings.address.index', compact('addresses'));
     }
@@ -29,5 +29,22 @@ class AddressController extends Controller
             ]);
         }
         return redirect()->route('admin.settings.address.index')->with('success', 'Address created successfully');
+    }
+
+    public function edit(FarmAddress $address)
+    {
+        return view('admin.pages.settings.address.edit', compact('address'));
+    }
+
+    public function update(FarmAddress $address, AddressRequest $request)
+    {
+        $address->update($request->except('phone'));
+        if ($request->filled('phone')) {
+            FarmPhone::create([
+                'number' => $request->phone,
+                'address_id' => $address->id
+            ]);
+        }
+        return redirect()->route('admin.settings.address.index')->with('success', 'Address upadted successfully');
     }
 }

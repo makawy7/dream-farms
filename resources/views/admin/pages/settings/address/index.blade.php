@@ -6,10 +6,12 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th style="width: 3%">#</th>
                             <th>ِAddress (English)</th>
                             <th>ِAddress (Arabic)</th>
                             <th>Phone Number</th>
+                            <th style="width: 5%">Edit</th>
+                            <th style="width: 5%">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -19,6 +21,10 @@
                                 <td>{{ $address->address_en }}</td>
                                 <td>{{ $address->address_ar }}</td>
                                 <td>{{ $address->phone?->number }}</td>
+                                <td><a href="{{ route('admin.settings.address.edit', $address->id) }}"
+                                        class="btn btn-success">Edit</a></td>
+                                <td><a href="{{ route('admin.settings.address.create') }}"
+                                        class="btn btn-danger">Delete</a></td>
                             </tr>
                         @empty
                         @endforelse
