@@ -47,4 +47,10 @@ class AddressController extends Controller
         }
         return redirect()->route('admin.settings.address.index')->with('success', 'Address upadted successfully');
     }
+
+    public function destroy(FarmAddress $address)
+    {
+        $address->delete();
+        return redirect()->route('admin.settings.address.index')->with('success', 'Address deleted successfully');
+    }
 }

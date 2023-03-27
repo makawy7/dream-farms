@@ -23,8 +23,14 @@
                                 <td>{{ $address->phone?->number }}</td>
                                 <td><a href="{{ route('admin.settings.address.edit', $address->id) }}"
                                         class="btn btn-success">Edit</a></td>
-                                <td><a href="{{ route('admin.settings.address.create') }}"
-                                        class="btn btn-danger">Delete</a></td>
+                                <td>
+                                    <form action="{{ route('admin.settings.address.destroy', $address->id) }}"
+                                        method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         @empty
                         @endforelse
