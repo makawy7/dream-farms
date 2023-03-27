@@ -9,4 +9,9 @@ class FarmAddress extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function phone()
+    {
+        return $this->hasOne(FarmPhone::class, 'address_id', 'id');
+    }
 }

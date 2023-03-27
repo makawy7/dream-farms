@@ -31,7 +31,7 @@
                             <a href="{{route('admin.settings.general.index')}}" class="nav-link active">General</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/forms/advanced-elements.html" class="nav-link">Addresses</a>
+                            <a href="{{route('admin.settings.address.index')}}" class="nav-link">Addresses</a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/forms/editors.html" class="nav-link">Phone Numbers</a>
