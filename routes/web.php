@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\Setting\AddressController;
 use App\Http\Controllers\Admin\Setting\GeneralController;
 
@@ -34,5 +35,6 @@ Route::group(['prefix' => 'admin/settings', 'as' => 'admin.settings.'], function
     });
     // Website Addresses Settings
     Route::resource('/address', AddressController::class)->names('address');
-
 });
+
+Route::resource('admin/products', [ProductController::class]);
