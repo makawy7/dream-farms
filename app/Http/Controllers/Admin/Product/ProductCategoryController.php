@@ -30,7 +30,8 @@ class ProductCategoryController extends Controller
      */
     public function store(ProductCategoryRequest $request)
     {
-        ProductCategory::create($request);
+        ProductCategory::create($request->all());
+        return back()->with('success', 'Category created successfully');
     }
 
     /**
