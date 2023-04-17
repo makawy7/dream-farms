@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Product;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Product\ProductCategoryRequest;
+use App\Models\ProductCategory;
 
 class ProductCategoryController extends Controller
 {
@@ -26,9 +28,9 @@ class ProductCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductCategoryRequest $request)
     {
-        //
+        ProductCategory::create($request);
     }
 
     /**
