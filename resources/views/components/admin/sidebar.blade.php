@@ -43,6 +43,21 @@
                 <a class="nav-link" data-bs-toggle="collapse" href="#forms" role="button" aria-expanded="false"
                     aria-controls="forms">
                     <i class="link-icon" data-feather="settings"></i>
+                    <span class="link-title">Product Categories</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse show" id="forms">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.products.categories.create') }}" class="nav-link">Add Category</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#forms" role="button" aria-expanded="false"
+                    aria-controls="forms">
+                    <i class="link-icon" data-feather="settings"></i>
                     <span class="link-title">Products</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
