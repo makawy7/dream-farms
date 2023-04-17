@@ -2,7 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Setting\AddressController;
 use App\Http\Controllers\Admin\Setting\GeneralController;
 
@@ -38,3 +38,4 @@ Route::group(['prefix' => 'admin/settings', 'as' => 'admin.settings.'], function
 });
 
 Route::resource('admin/products', ProductController::class)->names('admin.products');
+Route::resource('admin/products/categories', ProductController::class)->names('admin.products.categories');
