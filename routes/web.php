@@ -37,4 +37,4 @@ Route::group(['prefix' => 'admin/settings', 'as' => 'admin.settings.'], function
     Route::resource('/address', AddressController::class)->names('address');
 });
 
-Route::resource('admin/products', ProductController::class);
+Route::resource('admin/products', ProductController::class)->names('admin.products');

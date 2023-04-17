@@ -28,13 +28,28 @@
                 <div class="collapse show" id="forms">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{route('admin.settings.general.index')}}" class="nav-link active">General</a>
+                            <a href="{{ route('admin.settings.general.index') }}" class="nav-link active">General</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('admin.settings.address.index')}}" class="nav-link">Addresses</a>
+                            <a href="{{ route('admin.settings.address.index') }}" class="nav-link">Addresses</a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/forms/editors.html" class="nav-link">Phone Numbers</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#forms" role="button" aria-expanded="false"
+                    aria-controls="forms">
+                    <i class="link-icon" data-feather="settings"></i>
+                    <span class="link-title">Products</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse show" id="forms">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.products.create') }}" class="nav-link">Add Product</a>
                         </li>
                     </ul>
                 </div>

@@ -12,12 +12,12 @@ class AddressController extends Controller
     public function index()
     {
         $addresses = FarmAddress::all()->load('phone');
-        return view('admin.pages.settings.address.index', compact('addresses'));
+        return view('admin.settings.address.index', compact('addresses'));
     }
 
     public function create()
     {
-        return view('admin.pages.settings.address.create');
+        return view('admin.settings.address.create');
     }
     public function store(AddressRequest $request)
     {
@@ -33,7 +33,7 @@ class AddressController extends Controller
 
     public function edit(FarmAddress $address)
     {
-        return view('admin.pages.settings.address.edit', compact('address'));
+        return view('admin.settings.address.edit', compact('address'));
     }
 
     public function update(FarmAddress $address, AddressRequest $request)

@@ -13,7 +13,7 @@ class GeneralController extends Controller
     {
         $settings = Setting::first();
         return view(
-            'admin.pages.settings.general',
+            'admin.settings.general',
             [
                 'settings' => $settings
             ]
