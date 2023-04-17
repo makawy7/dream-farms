@@ -6,40 +6,72 @@
                     <form method="POST" action="" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label for="email" class="form-label">Product Name (English)</label>
-                            <input id="email" value=""
-                                class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email"
+                            <label for="name_en" class="form-label">Product Name (English)</label>
+                            <input id="name_en" value=""
+                                class="form-control {{ $errors->has('name_en') ? 'is-invalid' : '' }}" name="name_en"
                                 type="text">
-                            @error('email')
+                            @error('name_en')
                                 <label class="error invalid-feedback">{{ $message }}</label>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label">Product Name (Arabic)</label>
-                            <input id="email" value=""
-                                class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email"
+                            <label for="name_ar" class="form-label">Product Name (Arabic)</label>
+                            <input id="name_ar" value=""
+                                class="form-control {{ $errors->has('name_ar') ? 'is-invalid' : '' }}" name="name_ar"
                                 type="text">
-                            @error('email')
+                            @error('name_ar')
                                 <label class="error invalid-feedback">{{ $message }}</label>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="address_en" class="form-label">Description (English)</label>
-                            <textarea id="address_en" class="form-control {{ $errors->has('address_en') ? 'is-invalid' : '' }}" name="address_en"
-                                rows="3" type="text">{{ old('address_en') }}</textarea>
-                            @error('address_en')
+                            <label for="description_en" class="form-label">Description (English)</label>
+                            <textarea id="description_en" class="form-control {{ $errors->has('description_en') ? 'is-invalid' : '' }}"
+                                name="description_en" rows="3" type="text">{{ old('description_en') }}</textarea>
+                            @error('description_en')
                                 <label class="error invalid-feedback">{{ $message }}</label>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="address_ar" class="form-label">Description (Arabic)</label>
-                            <textarea id="address_ar" class="form-control {{ $errors->has('address_ar') ? 'is-invalid' : '' }}" name="address_ar"
-                                rows="3" type="text">{{ old('address_ar') }}</textarea>
-                            @error('address_ar')
+                            <label for="description_ar" class="form-label">Description (Arabic)</label>
+                            <textarea id="description_ar" class="form-control {{ $errors->has('description_ar') ? 'is-invalid' : '' }}"
+                                name="description_ar" rows="3" type="text">{{ old('description_ar') }}</textarea>
+                            @error('description_ar')
                                 <label class="error invalid-feedback">{{ $message }}</label>
                             @enderror
                         </div>
-
+                        <div class="mb-3">
+                            <label for="price" class="form-label">Price</label>
+                            <input id="price" value=""
+                                class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" name="price"
+                                type="number">
+                            @error('price')
+                                <label class="error invalid-feedback">{{ $message }}</label>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="stock" class="form-label">Stock</label>
+                            <input id="stock" value=""
+                                class="form-control {{ $errors->has('stock') ? 'is-invalid' : '' }}" name="stock"
+                                type="text">
+                            @error('stock')
+                                <label class="error invalid-feedback">{{ $message }}</label>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label for="category" class="form-label">Category</label>
+                            <select class="form-select {{ $errors->has('category') ? 'is-invalid' : '' }}"
+                                name="category_id" id="category">
+                                <option value="">
+                                </option>
+                                <option value="cat 1">
+                                    Cat 1</option>
+                                <option value="cat 2">
+                                    Cat 2</option>
+                            </select>
+                            @error('category')
+                                <label class="error invalid-feedback">{{ $message }}</label>
+                            @enderror
+                        </div>
 
                         <input class="btn btn-primary" type="submit" value="Submit">
                     </form>
