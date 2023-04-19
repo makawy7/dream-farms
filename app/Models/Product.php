@@ -12,20 +12,20 @@ class Product extends Model
 
     public function setSlugArAttribute($slug_ar)
     {
-        $this->attributes['slug_ar'] = self::uniqueSlug($slug_ar);
+        $this->attributes['slug_ar'] = self::uniqueSlug($slug_ar, 'slug_ar');
     }
     public function setSlugEnAttribute($slug_en)
     {
-        $this->attributes['slug_en'] = self::uniqueSlug($slug_en);
+        $this->attributes['slug_en'] = self::uniqueSlug($slug_en, 'slug_en');
     }
 
-    private static function uniqueSlug($slug, $counter = 1)
+    private static function uniqueSlug($slug, $field, $counter = 1)
     {
-        $newSlug = parent::where('slug', $slug)->exists() ? $slug . '-' . $counter : $slug;
-        if (parent::where('slug', $newSlug)->exists()) {
+        $newSlug = parent::where($field, $slug)->exists() ? $slug . '-' . $counter : $slug;
+        if (parent::where($field, $newSlug)->exists()) {
             // if it still exists regenerate
             $counter += 1;
-            return self::uniqueSlug($slug, $counter);
+            return self::uniqueSlug($slug, $field, $counter);
         } else {
             return $newSlug;
         }

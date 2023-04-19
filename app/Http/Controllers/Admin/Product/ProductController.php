@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin\Product;
 
+use App\Models\Product;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\ProductRequest;
-use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -15,7 +16,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('admin.products.index', [
+            'products' => $products
+        ]);
     }
 
     /**
@@ -34,6 +38,8 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
+        $request['slug_en'] = Str::slug($request['name_en']);
+        $request['slug_ar'] = Str::slug($request['name_ar']);
         Product::create($request->all());
         return redirect()->route('admin.products.index')->with('success', 'Product created successfully!');
     }
