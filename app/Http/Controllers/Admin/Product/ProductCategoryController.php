@@ -14,7 +14,10 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = ProductCategory::all();
+        return view('admin.products.categories.index', [
+            'categories' => $categories
+        ]);
     }
 
     /**
