@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin\Product;
 use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Product\ProductRequest;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -30,9 +32,10 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        //
+        Product::create($request->all());
+        return redirect()->route('admin.products.index')->with('success', 'Product created successfully!');
     }
 
     /**

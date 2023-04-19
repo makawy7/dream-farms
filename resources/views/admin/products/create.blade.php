@@ -3,11 +3,11 @@
         <div id="form" class="col-md-12 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <form method="POST" action="" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.products.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="name_en" class="form-label">Product Name (English)</label>
-                            <input id="name_en" value=""
+                            <input id="name_en" value="{{ old('name_en') }}"
                                 class="form-control {{ $errors->has('name_en') ? 'is-invalid' : '' }}" name="name_en"
                                 type="text">
                             @error('name_en')
@@ -16,7 +16,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="name_ar" class="form-label">Product Name (Arabic)</label>
-                            <input id="name_ar" value=""
+                            <input id="name_ar" value="{{ old('name_ar') }}"
                                 class="form-control {{ $errors->has('name_ar') ? 'is-invalid' : '' }}" name="name_ar"
                                 type="text">
                             @error('name_ar')
@@ -41,16 +41,16 @@
                         </div>
                         <div class="mb-3">
                             <label for="price" class="form-label">Price</label>
-                            <input id="price" value=""
+                            <input id="price" value="{{ old('price') }}"
                                 class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" name="price"
-                                type="number">
+                                type="text">
                             @error('price')
                                 <label class="error invalid-feedback">{{ $message }}</label>
                             @enderror
                         </div>
                         <div class="mb-3">
                             <label for="stock" class="form-label">Stock</label>
-                            <input id="stock" value=""
+                            <input id="stock" value="{{ old('stock') }}"
                                 class="form-control {{ $errors->has('stock') ? 'is-invalid' : '' }}" name="stock"
                                 type="text">
                             @error('stock')
@@ -59,16 +59,17 @@
                         </div>
                         <div class="mb-3">
                             <label for="category" class="form-label">Category</label>
-                            <select class="form-select {{ $errors->has('category') ? 'is-invalid' : '' }}"
+                            <select class="form-select {{ $errors->has('category_id') ? 'is-invalid' : '' }}"
                                 name="category_id" id="category">
                                 <option value="">
                                 </option>
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">
+                                    <option {{ old('category_id') === $category->id ? 'selected' : '' }}
+                                        value="{{ $category->id }}">
                                         {{ $category->name_en }}</option>
                                 @endforeach
                             </select>
-                            @error('category')
+                            @error('category_id')
                                 <label class="error invalid-feedback">{{ $message }}</label>
                             @enderror
                         </div>
