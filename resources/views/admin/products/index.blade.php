@@ -22,8 +22,7 @@
                                 <td><a href="{{ route('admin.products.categories.edit', $product->id) }}"
                                         class="btn btn-success">Edit</a></td>
                                 <td>
-                                    <form action="{{ route('admin.products.categories.destroy', $product->id) }}"
-                                        method="POST">
+                                    <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
