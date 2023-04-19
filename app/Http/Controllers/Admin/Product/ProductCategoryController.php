@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin\Product;
 
 use Illuminate\Http\Request;
+use App\Models\ProductCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\ProductCategoryRequest;
-use App\Models\ProductCategory;
 
 class ProductCategoryController extends Controller
 {
@@ -14,9 +14,9 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        $categories = ProductCategory::all();
+        $pcategories = ProductCategory::all();
         return view('admin.products.categories.index', [
-            'categories' => $categories
+            'pcategories' => $pcategories
         ]);
     }
 
@@ -48,9 +48,11 @@ class ProductCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(ProductCategory $pcategory)
     {
-        //
+        return view('admin.products.categories.edit', [
+            'category' => $pcategory
+        ]);
     }
 
     /**
@@ -64,8 +66,9 @@ class ProductCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(ProductCategory $pcategory)
     {
-        //
+        $pcategory->delete();
+        return back()->with('success', 'Category deleted successfully');
     }
 }
