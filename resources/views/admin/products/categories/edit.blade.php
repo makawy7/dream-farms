@@ -3,9 +3,10 @@
         <div id="form" class="col-md-12 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.products.categories.store') }}"
+                    <form method="POST" action="{{ route('admin.products.categories.update', $category->id) }}"
                         enctype="multipart/form-data">
                         @csrf
+                        @method('PUT')
                         <div class="mb-3">
                             <label for="name_en" class="form-label">Category Name (English)</label>
                             <input id="name_en" value="{{ old('name_en') ?? $category->name_en }}"
@@ -24,7 +25,7 @@
                                 <label class="error invalid-feedback">{{ $message }}</label>
                             @enderror
                         </div>
-                        <input class="btn btn-primary" type="submit" value="Submit">
+                        <input class="btn btn-primary" type="submit" value="Update">
                     </form>
                 </div>
             </div>

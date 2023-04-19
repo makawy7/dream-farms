@@ -58,9 +58,10 @@ class ProductCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ProductCategoryRequest $request, ProductCategory $pcategory)
     {
-        //
+        $pcategory->update($request->all());
+        return redirect()->route('admin.products.categories.index')->with('success', 'Category updated successfully');
     }
 
     /**
