@@ -63,10 +63,10 @@
                                 name="category_id" id="category">
                                 <option value="">
                                 </option>
-                                <option value="cat 1">
-                                    Cat 1</option>
-                                <option value="cat 2">
-                                    Cat 2</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">
+                                        {{ $category->name_en }}</option>
+                                @endforeach
                             </select>
                             @error('category')
                                 <label class="error invalid-feedback">{{ $message }}</label>

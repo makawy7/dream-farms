@@ -34,7 +34,7 @@ class ProductCategoryController extends Controller
     public function store(ProductCategoryRequest $request)
     {
         ProductCategory::create($request->all());
-        return back()->with('success', 'Category created successfully');
+        return redirect()->route('admin.products.categories.index')->with('success', 'Category created successfully');
     }
 
     /**
