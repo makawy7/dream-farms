@@ -67,8 +67,9 @@ class ProductVariationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(ProductVariation $variation)
     {
-        //
+        $variation->delete();
+        return redirect()->route('admin.products.variations.index')->with('success', 'Product variation deleted successfully!');
     }
 }
