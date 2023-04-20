@@ -3,7 +3,7 @@
         <div id="form" class="col-md-12 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.products.categories.store') }}"
+                    <form method="POST" action="{{ route('admin.products.variations.store') }}"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">

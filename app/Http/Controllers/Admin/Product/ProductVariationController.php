@@ -2,17 +2,25 @@
 
 namespace App\Http\Controllers\Admin\Product;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\ProductVariation;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Product\ProductVariationRequest;
 
-class ProductVariation extends Controller
+class ProductVariationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $variations = ProductVariation::all();
+        return view(
+            'admin.products.variations.index',
+            [
+                'variations' => $variations
+            ]
+        );
     }
 
     /**
@@ -26,9 +34,10 @@ class ProductVariation extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductVariationRequest $request)
     {
-        //
+        ProductVariation::create($request->all());
+        return redirect()->route('admin.products.variations.index')->with('success', 'Product variation created successfully!');
     }
 
     /**

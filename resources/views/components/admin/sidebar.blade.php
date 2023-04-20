@@ -67,7 +67,7 @@
                 <div class="collapse show" id="forms">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('admin.products.index') }}" class="nav-link">All Product</a>
+                            <a href="{{ route('admin.products.variations.index') }}" class="nav-link">All Variations</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.products.variations.create') }}" class="nav-link">Add Variation</a>
