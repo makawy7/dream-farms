@@ -51,17 +51,18 @@ class ProductVariationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(ProductVariation $variation)
     {
-        //
+        return view('admin.products.variations.edit', ['variation' => $variation]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ProductVariationRequest $request, ProductVariation $variation)
     {
-        //
+        $variation->update($request->all());
+        return redirect()->route('admin.products.variations.index')->with('success', 'Product variation updated successfully!');
     }
 
     /**
