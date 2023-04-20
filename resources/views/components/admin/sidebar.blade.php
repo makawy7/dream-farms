@@ -61,6 +61,24 @@
                 <a class="nav-link" data-bs-toggle="collapse" href="#forms" role="button" aria-expanded="false"
                     aria-controls="forms">
                     <i class="link-icon" data-feather="settings"></i>
+                    <span class="link-title">Product Variations</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse show" id="forms">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.products.index') }}" class="nav-link">All Product</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.products.variations.create') }}" class="nav-link">Add Variation</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#forms" role="button" aria-expanded="false"
+                    aria-controls="forms">
+                    <i class="link-icon" data-feather="settings"></i>
                     <span class="link-title">Products</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
