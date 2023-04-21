@@ -15,11 +15,11 @@ class OptionAttributeController extends Controller
      */
     public function index()
     {
-        $attributes = OptionAttribute::all();
+        $options = ProductOption::all()->load('attributes');
         return view(
             'admin.products.options.attributes.index',
             [
-                'attributes' => $attributes
+                'options' => $options
             ]
         );
     }
