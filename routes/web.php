@@ -2,12 +2,12 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Product\OptionController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Setting\AddressController;
 use App\Http\Controllers\Admin\Setting\GeneralController;
+use App\Http\Controllers\Admin\Product\OptionAttributeController;
 use App\Http\Controllers\Admin\Product\ProductCategoryController;
-use App\Http\Controllers\Admin\Product\VariationOptionController;
-use App\Http\Controllers\Admin\Product\ProductVariationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +41,6 @@ Route::group(['prefix' => 'admin/settings', 'as' => 'admin.settings.'], function
 });
 
 Route::resource('admin/products/categories', ProductCategoryController::class)->names('admin.products.categories')->except('show');
-Route::resource('admin/products/variations/options', VariationOptionController::class)->names('admin.products.variations.options')->except('show');
-Route::resource('admin/products/variations', ProductVariationController::class)->names('admin.products.variations')->except('show');
+Route::resource('admin/products/options/attributes', OptionAttributeController::class)->names('admin.products.options.attributes')->except('show');
+Route::resource('admin/products/options', OptionController::class)->names('admin.products.options')->except('show');
 Route::resource('admin/products', ProductController::class)->names('admin.products');

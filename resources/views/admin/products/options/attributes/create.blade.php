@@ -3,11 +3,11 @@
         <div id="form" class="col-md-12 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.products.variations.store') }}"
+                    <form method="POST" action="{{ route('admin.products.options.attributes.store') }}"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label for="name_en" class="form-label">Variation Name (English)</label>
+                            <label for="name_en" class="form-label">Attribute Name (English)</label>
                             <input id="name_en" value="{{ old('name_en') }}"
                                 class="form-control {{ $errors->has('name_en') ? 'is-invalid' : '' }}" name="name_en"
                                 type="text">
@@ -16,7 +16,7 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="name_ar" class="form-label">Variation Name (Arabic)</label>
+                            <label for="name_ar" class="form-label">Attribute Name (Arabic)</label>
                             <input id="name_ar" value="{{ old('name_ar') }}"
                                 class="form-control {{ $errors->has('name_ar') ? 'is-invalid' : '' }}" name="name_ar"
                                 type="text">

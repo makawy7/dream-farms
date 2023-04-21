@@ -61,16 +61,16 @@
                 <a class="nav-link" data-bs-toggle="collapse" href="#forms" role="button" aria-expanded="false"
                     aria-controls="forms">
                     <i class="link-icon" data-feather="settings"></i>
-                    <span class="link-title">Product Variations</span>
+                    <span class="link-title">Product Options</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse show" id="forms">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('admin.products.variations.index') }}" class="nav-link">All Variations</a>
+                            <a href="{{ route('admin.products.options.index') }}" class="nav-link">All Options</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.products.variations.create') }}" class="nav-link">Add Variation</a>
+                            <a href="{{ route('admin.products.options.create') }}" class="nav-link">Add Option</a>
                         </li>
                     </ul>
                 </div>
@@ -79,16 +79,16 @@
                 <a class="nav-link" data-bs-toggle="collapse" href="#forms" role="button" aria-expanded="false"
                     aria-controls="forms">
                     <i class="link-icon" data-feather="settings"></i>
-                    <span class="link-title">Variation Options</span>
+                    <span class="link-title">Options Attributes</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse show" id="forms">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('admin.products.variations.options.index') }}" class="nav-link">All Options</a>
+                            <a href="{{ route('admin.products.options.attributes.index') }}" class="nav-link">All Attributes</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.products.variations.options.create') }}" class="nav-link">Add Variation</a>
+                            <a href="{{ route('admin.products.options.attributes.create') }}" class="nav-link">Add Attribute</a>
                         </li>
                     </ul>
                 </div>

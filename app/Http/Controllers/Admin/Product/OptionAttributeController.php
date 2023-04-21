@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class VariationOptionController extends Controller
+class OptionAttributeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +20,7 @@ class VariationOptionController extends Controller
      */
     public function create()
     {
-        return view('admin.products.variations.options.create');
+        return view('admin.products.options.attributes.create');
     }
 
     /**
