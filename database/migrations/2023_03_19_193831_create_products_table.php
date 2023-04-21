@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("slug_ar");
             $table->text("description_en");
             $table->text("description_ar");
-            $table->decimal("price", 8, 2)->nullable();
+            $table->decimal("base_price", 8, 2)->nullable();
             $table->unsignedInteger("stock")->nullable();
             $table->foreignId("category_id")->constrained('product_categories')->cascadeOnDelete();
             $table->timestamps();

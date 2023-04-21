@@ -2,11 +2,12 @@
 
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\Product\ProductVariationController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Setting\AddressController;
 use App\Http\Controllers\Admin\Setting\GeneralController;
 use App\Http\Controllers\Admin\Product\ProductCategoryController;
+use App\Http\Controllers\Admin\Product\VariationOptionController;
+use App\Http\Controllers\Admin\Product\ProductVariationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::group(['prefix' => 'admin/settings', 'as' => 'admin.settings.'], function
     Route::resource('/address', AddressController::class)->names('address');
 });
 
-Route::resource('admin/categories', ProductCategoryController::class)->names('admin.products.categories');
-Route::resource('admin/variations', ProductVariationController::class)->names('admin.products.variations');
+Route::resource('admin/products/categories', ProductCategoryController::class)->names('admin.products.categories')->except('show');
+Route::resource('admin/products/variations/options', VariationOptionController::class)->names('admin.products.variations.options')->except('show');
+Route::resource('admin/products/variations', ProductVariationController::class)->names('admin.products.variations')->except('show');
 Route::resource('admin/products', ProductController::class)->names('admin.products');
