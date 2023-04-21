@@ -34,4 +34,9 @@ class Product extends Model
     {
         return $this->belongsTo(ProductCategory::class, 'category_id');
     }
+
+    public function options()
+    {
+        return $this->belongsToMany(ProductOption::class, 'product_option_attributes', 'product_id', 'option_id');
+    }
 }
