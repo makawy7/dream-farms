@@ -82,8 +82,9 @@ class OptionAttributeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(OptionAttribute $attribute)
     {
-        //
+        $attribute->delete();
+        return redirect()->route('admin.products.options.attributes.index')->with('success', 'Option Attribute deleted successfully');
     }
 }
