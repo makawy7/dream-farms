@@ -24,6 +24,22 @@
                                 <label class="error invalid-feedback">{{ $message }}</label>
                             @enderror
                         </div>
+                        <div class="mb-3">
+                            <label for="option" class="form-label">Option</label>
+                            <select class="form-select {{ $errors->has('option_id') ? 'is-invalid' : '' }}"
+                                name="option_id" id="option">
+                                <option value="">
+                                </option>
+                                @foreach ($options as $option)
+                                    <option {{ old('option_id') === $option->id ? 'selected' : '' }}
+                                        value="{{ $option->id }}">
+                                        {{ $option->name_en }}</option>
+                                @endforeach
+                            </select>
+                            @error('option_id')
+                                <label class="error invalid-feedback">{{ $message }}</label>
+                            @enderror
+                        </div>
                         <input class="btn btn-primary" type="submit" value="Submit">
                     </form>
                 </div>

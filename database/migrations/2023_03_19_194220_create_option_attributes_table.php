@@ -16,8 +16,6 @@ return new class extends Migration
             $table->foreignId("option_id")->constrained("product_options")->cascadeOnDelete();
             $table->string("name_en");
             $table->string("name_ar");
-            $table->unsignedInteger("stock")->default(0);
-            $table->decimal("price", 8, 2);
             $table->timestamps();
         });
     }

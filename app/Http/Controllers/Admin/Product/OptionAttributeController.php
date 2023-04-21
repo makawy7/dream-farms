@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Product;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\ProductOption;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Product\OptionAttributeRequest;
+use App\Models\OptionAttribute;
 
 class OptionAttributeController extends Controller
 {
@@ -12,7 +15,13 @@ class OptionAttributeController extends Controller
      */
     public function index()
     {
-        //
+        $attributes = OptionAttribute::all();
+        return view(
+            'admin.products.options.attributes.index',
+            [
+                'attributes' => $attributes
+            ]
+        );
     }
 
     /**
@@ -20,15 +29,22 @@ class OptionAttributeController extends Controller
      */
     public function create()
     {
-        return view('admin.products.options.attributes.create');
+        $options = ProductOption::all();
+        return view(
+            'admin.products.options.attributes.create',
+            [
+                'options' => $options
+            ]
+        );
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(OptionAttributeRequest $request)
     {
-        //
+        OptionAttribute::create($request->all());
+        return redirect()->route('admin.products.options.attributes.index')->with('success', 'Option Attribute created successfully');
     }
 
     /**
