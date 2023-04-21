@@ -58,17 +58,25 @@ class OptionAttributeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(OptionAttribute $attribute)
     {
-        //
+        $options = ProductOption::all();
+        return view(
+            'admin.products.options.attributes.edit',
+            [
+                'attribute' => $attribute,
+                'options' => $options
+            ]
+        );
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(OptionAttributeRequest $request, OptionAttribute $attribute)
     {
-        //
+        $attribute->update($request->all());
+        return redirect()->route('admin.products.options.attributes.index')->with('success', 'Option Attribute updated successfully');
     }
 
     /**
