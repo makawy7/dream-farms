@@ -89,6 +89,7 @@ License: For each use you must have a valid license purchased only from above li
     <!-- Plugin js for this page -->
     <script src="{{ asset('assets/admin') }}/vendors/flatpickr/flatpickr.min.js"></script>
     <script src="{{ asset('assets/admin') }}/vendors/apexcharts/apexcharts.min.js"></script>
+
     <!-- End plugin js for this page -->
 
     <!-- inject:js -->
@@ -98,10 +99,12 @@ License: For each use you must have a valid license purchased only from above li
 
     <!-- Custom js for this page -->
     <script src="{{ asset('assets/admin') }}/js/dashboard-light.js"></script>
+
     <!-- End custom js for this page -->
 
     <script src="{{ asset('assets/admin') }}/vendors/dropify/dist/dropify.min.js"></script>
     <script src="{{ asset('assets/admin') }}/js/dropify.js"></script>
+
 </body>
 
 </html>

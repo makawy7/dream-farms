@@ -74,6 +74,22 @@
                             @enderror
                         </div>
 
+                        <label class="form-label mb-3">Options</label>
+                        <div class="mb-3">
+                            @forelse ($options as $option)
+                                <div class="form-check form-check-inline">
+                                    <input type="checkbox" name="options[]" class="form-check-input" id="option_{{ $option->id }}">
+                                    <label class="form-check-label" for="option_{{ $option->id }}">
+                                        {{ $option->name_en }}
+                                    </label>
+                                </div>
+                            @empty
+                                <p>No options found.</p>
+                            @endforelse
+                        </div>
+
+
+
                         <input class="btn btn-primary" type="submit" value="Submit">
                     </form>
                 </div>

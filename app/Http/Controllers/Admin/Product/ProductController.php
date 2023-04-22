@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\ProductRequest;
+use App\Models\ProductOption;
 
 class ProductController extends Controller
 {
@@ -28,8 +29,10 @@ class ProductController extends Controller
     public function create()
     {
         $categories = ProductCategory::all();
+        $options = ProductOption::all()->load('attributes');
         return view('admin.products.create', [
-            'categories' => $categories
+            'categories' => $categories,
+            'options' => $options
         ]);
     }
 
